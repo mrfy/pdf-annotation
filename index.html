@@ -32,9 +32,28 @@
       #pdf-container {
         width: 100%;
         height: calc(100vh - 120px);
+        display: flex;
+        gap: 20px;
         border: 1px solid #ddd;
         border-radius: 4px;
         overflow: hidden;
+      }
+      #pdf-container-left,
+      #pdf-container-right {
+        flex: 1;
+        height: 100%;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
+      }
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
       }
     </style>
   </head>
@@ -44,7 +63,10 @@
       <button id="add-text">Add Text Annotation</button>
       <button id="save-pdf">Save PDF</button>
     </div>
-    <div id="pdf-container"></div>
+    <div id="pdf-container">
+      <div id="pdf-container-left"></div>
+      <div id="pdf-container-right"></div>
+    </div>
     <script type="module" src="/src/renderer/renderer.ts"></script>
   </body>
 </html>
